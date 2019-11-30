@@ -9,7 +9,6 @@ class Application:
         self.win.geometry("500x500")
         self.win.title("Text Analyzer")
         self.win.iconbitmap(default="icons/text_analyzer.ico")
-        file_download()
         self.create_widgets()
         self.win.mainloop()
 
@@ -25,6 +24,7 @@ class Application:
 
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
+        file_menu.add_command(label="Download File", command=file_download())
         file_menu.add_command(label="Exit", command=self._quit)
 
         # TODO: Create GUI. Add menu.
