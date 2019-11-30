@@ -1,20 +1,15 @@
 import requests
-import file_url
-import file_name
 
+###
+# Download file from url and save as 'result.txt' for later purposes.
+###
 
-def file_download():
-    ###
-    # Download file from url and save as 'result.txt' for later purposes.
-    ###
-    url = file_url.url
-    filename = file_name.name_file
-    download_file = requests.get(url, stream=True)
+url = "https://raw.githubusercontent.com/FraQu/test_text_analyzer/master/5.txt"
+download_file = requests.get(url, stream=True)
 
-    with open(filename, 'wb') as file:
-        for chunk in download_file.iter_content(chunk_size=1024):
-            if not chunk:
-                break
-            file.write(chunk)
-
+with open('result.txt', 'wb') as f:
+    for chunk in download_file.iter_content(chunk_size=1024):
+        if not chunk:
+            break
+        f.write(chunk)
 
