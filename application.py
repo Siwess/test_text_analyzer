@@ -24,7 +24,7 @@ class Application:
 
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
-        file_menu.add_command(label="Download File", command=file_download())
+        file_menu.add_command(label="Download File", command=file_download)
         file_menu.add_command(label="Exit", command=self._quit)
 
         # TODO: Create GUI. Add menu.
