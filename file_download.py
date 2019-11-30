@@ -1,5 +1,9 @@
 import requests
 
+###
+# Download file from url and save as 'result.txt' for later purposes.
+###
+
 url = "https://raw.githubusercontent.com/FraQu/test_text_analyzer/master/5.txt"
 download_file = requests.get(url, stream=True)
 
