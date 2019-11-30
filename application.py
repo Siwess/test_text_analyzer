@@ -20,9 +20,13 @@ class Application:
     def create_widgets(self):
         menu_bar = Menu()
         self.win.config(menu=menu_bar)
+
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
-        # TODO: Create GUI.
+        file_menu.add_command(label="Exit", command=self._quit)
+
+        # TODO: Create GUI. Add menu.
+
 
 
 app = Application()
