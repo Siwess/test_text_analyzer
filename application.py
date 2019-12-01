@@ -44,6 +44,7 @@ class Application:
         file_menu.add_command(label="Download hardcoded file", command=file_download)
         file_menu.add_command(label="Open file...", command=self.open_file)
         file_menu.add_command(label="Save file...", command=self.save_file)
+        file_menu.add_command(label="Save statistics...", command=self.save_statistics)
         file_menu.add_command(label="Exit", command=self._quit)
 
         count_menu = Menu(menu_bar, tearoff=0)
@@ -75,6 +76,16 @@ class Application:
         # Save text to file
         ##
         filename = fd.asksaveasfilename(filetypes=[("Text file", "*.txt")], defaultextension="*.txt")
+
+        if filename:
+            with open(filename, "w", -1, "utf-8") as file:
+                file.write(self.text.get(1.0, tk.END))
+
+    def save_statistics(self):
+        ##
+        # Save statistics to file
+        #
+        filename = fd.asksaveasfilename(filetypes=[("Tezt file", "*.txt")], defaultextension="*.txt")
 
         if filename:
             with open(filename, "w", -1, "utf-8") as file:
