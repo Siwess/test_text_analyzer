@@ -85,7 +85,7 @@ class Application:
         ##
         # Save statistics to file
         #
-        filename = fd.asksaveasfilename(filetypes=[("Tezt file", "*.txt")], defaultextension="*.txt")
+        filename = fd.asksaveasfilename(filetypes=[("Text file", "*.txt")], defaultextension="*.txt")
 
         if filename:
             with open(filename, "w", -1, "utf-8") as file:
