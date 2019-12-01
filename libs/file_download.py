@@ -1,12 +1,12 @@
 import requests
-import file_url
-import file_name
+from libs import file_name, file_url
 
 
 def file_download():
     ###
     # Download file from url and save as 'result.txt' for later purposes.
     ###
+
     url = file_url.url
     filename = file_name.name_file
     download_file = requests.get(url, stream=True)
