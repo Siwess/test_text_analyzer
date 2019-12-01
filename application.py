@@ -1,12 +1,11 @@
 import tkinter as tk
 from tkinter import *
-from file_download import file_download
-from count_letters import count_letters
-from count_words import count_words
-from count_punctuation_marks import count_punctuation_marks
-from count_sentences import count_sentences
+from libs.file_download import file_download
+from libs.count_letters import count_letters
+from libs.count_words import count_words
+from libs.count_punctuation_marks import count_punctuation_marks
+from libs.count_sentences import count_sentences
 from msg_box import _msg_box
-from file_save import save_file
 
 
 class Application:
