@@ -6,7 +6,6 @@ def save_file(self):
     ##
     # Save text to file
     ##
-
     filename = filedialog.asksaveasfilename(filetypes=[("Text file", "*.txt")], defaultextension="*.txt")
 
     if filename:

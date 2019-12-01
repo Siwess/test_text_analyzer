@@ -17,19 +17,24 @@ class Application:
         self.create_widgets()
         self.win.mainloop()
 
-    # Exit GUI cleanly
     def _quit(self):
+        ##
+        # Exit GUI cleanly
+        ##
         self.win.quit()
         self.win.destroy()
         exit()
 
     def create_widgets(self):
+        ##
+        # Create widgets like menu, text box, etc.
+        ##
         menu_bar = Menu()
         self.win.config(menu=menu_bar)
 
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
-        file_menu.add_command(label="Download file", command=file_download)
+        file_menu.add_command(label="Download hardcoded file", command=file_download)
         file_menu.add_command(label="Exit", command=self._quit)
 
         count_menu = Menu(menu_bar, tearoff=0)
