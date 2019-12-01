@@ -82,6 +82,7 @@ class Application:
                 file.write(self.text.get(1.0, tk.END))
 
     def save_statistics(self):
+        # TODO: Implement save statistics to file...
         ##
         # Save statistics to file
         #
