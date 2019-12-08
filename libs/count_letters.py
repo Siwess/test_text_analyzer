@@ -3,9 +3,9 @@ from tkinter import *
 from libs import file_name
 
 
-def count_letters():
+def msg_box_count_letters():
     ##
-    # Show MSG Box about letters in text.
+    # Show Window about letters in text.
     ##
     win = tk.Toplevel()
     win.geometry("400x200")
