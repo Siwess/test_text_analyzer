@@ -8,9 +8,9 @@ def msg_box_count_letters():
     ##
     file = open(file_name.name_file)
     data = file.read()
-    remove_spaces = data.replace(" ", "")
-    remove_dots = remove_spaces.replace(".", "")
-    rm_q = remove_dots.replace("?", "")
+    rm_spaces = data.replace(" ", "")
+    rm_dots = rm_spaces.replace(".", "")
+    rm_q = rm_dots.replace("?", "")
     rm_em = rm_q.replace("!", "")
     rm_sc = rm_em.replace(";", "")
     rm_comm = rm_sc.replace(",", "")
