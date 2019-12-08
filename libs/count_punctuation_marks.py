@@ -1,11 +1,17 @@
+from tkinter import messagebox as msg
 from libs import file_name
 
 
-def count_punctuation_marks():
+def msg_box_count_punctuation_marks():
     ##
     # Count punctuation marks in file
     ##
     file = open(file_name.name_file)
     data = file.read()
-    numbers_of_characters = len(data)
-    # TODO: Implement: Count punctuation marks
+    count = 0
+    for i in range(0, len(data)):
+        if data[i] in ("!", ",", "'", ";", '"', ".", "-" ,"?"):
+            count = count + 1
+
+    numbers_of_punctuation_marks = count
+    msg.showinfo("Punctuation marks in text", numbers_of_punctuation_marks)
