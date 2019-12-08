@@ -1,6 +1,14 @@
 import tkinter as tk
 from tkinter import *
 from libs import file_name
+from tkinter import messagebox as msg
+
+
+try:
+    file = open(file_name.name_file)
+
+except IOError:
+    msg.showinfo("There is no file!")
 
 
 def msg_box_count_letters():
@@ -11,7 +19,6 @@ def msg_box_count_letters():
     win.geometry("400x200")
     win.title("Number of letters")
 
-    file = open(file_name.name_file)
     data = file.read()
     rm_spaces = data.replace(" ", "")
     rm_dots = rm_spaces.replace(".", "")
