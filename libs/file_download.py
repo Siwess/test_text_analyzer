@@ -16,4 +16,3 @@ def file_download():
                 break
             file.write(chunk)
 
-
