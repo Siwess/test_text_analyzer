@@ -4,7 +4,7 @@ from libs import file_name, file_url
 
 def file_download():
     ###
-    # Download file from url and save as 'result.txt' for later purposes.
+    # Download file from url and save as 'name from fine_name.py' for later purposes.
     ###
     url = file_url.url
     filename = file_name.name_file
