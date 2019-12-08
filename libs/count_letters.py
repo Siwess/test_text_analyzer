@@ -9,3 +9,5 @@ def msg_box_count_letters():
     data = file.read()
     numbers_of_characters = len(data)
     msg.showinfo("Letters in text", numbers_of_characters)
+    # TODO: Change...
+
