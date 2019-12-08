@@ -7,6 +7,7 @@ from libs.count_punctuation_marks import count_punctuation_marks
 from libs.count_sentences import count_sentences
 from tkinter import filedialog as fd
 from msg_box import _msg_box
+from tkinter import messagebox as msg
 
 
 class Application:
@@ -22,6 +23,7 @@ class Application:
         self.scrollbar_text.config(command=self.text.yview)
         self.text.config(yscrollcommand=self.scrollbar_text.set)
         self.text.place(x=0, y=0, relwidth=1, relheight=1, width=- 18)
+        self.auto_open_file()
         self.win.mainloop()
 
     def _quit(self):
@@ -31,6 +33,15 @@ class Application:
         self.win.quit()
         self.win.destroy()
         exit()
+
+    def msg_box_count_letters(self):
+        ##
+        # Show MSG Box about letters in text.
+        ##
+        file = open('result.txt')
+        data = file.read()
+        numbers_of_characters = len(data)
+        msg.showinfo("Letters in text", numbers_of_characters)
 
     def create_widgets(self):
         ##
@@ -49,7 +60,7 @@ class Application:
 
         count_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Count", menu=count_menu)
-        count_menu.add_command(label="Count letters", command=count_letters)
+        count_menu.add_command(label="Count letters", command=self.msg_box_count_letters)
         count_menu.add_command(label="Count punctuation marks", command=count_punctuation_marks)
         count_menu.add_command(label="Count sentences", command=count_sentences)
         count_menu.add_command(label="Count words", command=count_words)
@@ -70,6 +81,14 @@ class Application:
             with open(filename, "r", -1, "utf-8") as file:
                 self.text.delete(1.0, tk.END)
                 self.text.insert(tk.END, file.read())
+
+    def auto_open_file(self):
+        ##
+        # Open hardcoded text file
+        ##
+        file = open('result.txt', encoding="utf8")
+        self.text.delete(1.0, tk.END)
+        self.text.insert(tk.END, file.read())
 
     def save_file(self):
         ##
