@@ -82,7 +82,7 @@ class Application:
         ##
         # Open hardcoded text file
         ##
-        file = open('result.txt', encoding="utf8")
+        file = open('5.txt', encoding="utf8")
         self.text.delete(1.0, tk.END)
         self.text.insert(tk.END, file.read())
 

@@ -1,2 +1,2 @@
-name_file = "result.txt"
+name_file = "5.txt"
 
