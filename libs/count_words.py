@@ -1,14 +1,22 @@
-from tkinter import messagebox as msg
+import tkinter as tk
+from tkinter import *
 from libs import file_name
 
 
-def msg_box_count_words():
+def count_words():
     ##
     # Count words in file
     ##
+    win = tk.Toplevel()
+    win.geometry("400x200")
+    win.title("Number of words")
+
     file = open(file_name.name_file)
     data = file.read()
     rm_spaces = data.replace(".", " ")
-    numbers_of_words = len(rm_spaces.split(" "))
-    msg.showinfo("Words in text: ", numbers_of_words)
+    words = len(rm_spaces.split(" "))
+    text = Label(win, text="Number of words in text: ")
+    text.pack()
+    number_of_words = Label(win, text=words)
+    number_of_words.pack()
 

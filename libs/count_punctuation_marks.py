@@ -1,11 +1,16 @@
-from tkinter import messagebox as msg
+import tkinter as tk
+from tkinter import *
 from libs import file_name
 
 
-def msg_box_count_punctuation_marks():
+def count_punctuation_marks():
     ##
     # Count punctuation marks in file
     ##
+    win = tk.Toplevel()
+    win.geometry("400x200")
+    win.title("Number of punctuation marks")
+
     file = open(file_name.name_file)
     data = file.read()
     count = 0
@@ -13,5 +18,9 @@ def msg_box_count_punctuation_marks():
         if data[i] in ("!", ",", "'", ";", '"', ".", "-", "?"):
             count = count + 1
 
-    numbers_of_punctuation_marks = count
-    msg.showinfo("Punctuation marks in text: ", numbers_of_punctuation_marks)
+    punctuation_marks = count
+    text = Label(win, text="Number of punctuation marks in text: ")
+    text.pack()
+    number_of_punctuation_marks = Label(win, text=punctuation_marks)
+    number_of_punctuation_marks.pack()
+

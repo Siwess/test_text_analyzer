@@ -1,13 +1,22 @@
-from tkinter import messagebox as msg
+import tkinter as tk
+from tkinter import *
 from libs import file_name
 
 
-def msg_box_count_sentences():
+def count_sentences():
     ##
     # Count sentences in file
     ##
+    win = tk.Toplevel()
+    win.geometry("400x200")
+    win.title("Number of sentences")
+
     file = open(file_name.name_file)
     data = file.read()
-    numbers_of_sentences = len(data.split("."))
-    msg.showinfo("Sentences in text: ", numbers_of_sentences)
+    sentences = len(data.split("."))
+    text = Label(win, text="Number of sentences in text: ")
+    text.pack()
+    number_of_sentences = Label(win, text=sentences)
+    number_of_sentences.pack()
+
 
