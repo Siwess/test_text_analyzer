@@ -1,13 +1,23 @@
 from tkinter import messagebox as msg
+from libs import file_name
 
 
 def msg_box_count_letters():
     ##
     # Show MSG Box about letters in text.
     ##
-    file = open('result.txt')
+    file = open(file_name.name_file)
     data = file.read()
-    numbers_of_characters = len(data)
-    msg.showinfo("Letters in text", numbers_of_characters)
-    # TODO: Change...
+    remove_spaces = data.replace(" ", "")
+    remove_dots = remove_spaces.replace(".", "")
+    rm_q = remove_dots.replace("?", "")
+    rm_em = rm_q.replace("!", "")
+    rm_sc = rm_em.replace(";", "")
+    rm_comm = rm_sc.replace(",", "")
+    rm_c = rm_comm.replace(":", "")
+    rm_a = rm_c.replace("'", "")
+    rm_d = len(rm_a.replace("-", ""))
+
+    msg.showinfo("Letters in text", rm_d)
+    # TODO: Change this nice code...
 
