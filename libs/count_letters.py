@@ -1,14 +1,11 @@
-from libs import file_name
+from tkinter import messagebox as msg
 
 
-def count_letters():
+def msg_box_count_letters():
     ##
-    # Count letters in file
+    # Show MSG Box about letters in text.
     ##
-    file = open(file_name.name_file)
+    file = open('result.txt')
     data = file.read()
     numbers_of_characters = len(data)
-    # TODO: Implement: Count letters
-
-
-
+    msg.showinfo("Letters in text", numbers_of_characters)
