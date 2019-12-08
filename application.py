@@ -7,6 +7,7 @@ from libs.count_punctuation_marks import count_punctuation_marks
 from libs.count_sentences import count_sentences
 from tkinter import filedialog as fd
 from msg_box import _msg_box
+from libs.file_name import name_file
 
 
 class Application:
@@ -82,7 +83,7 @@ class Application:
         ##
         # Open hardcoded text file
         ##
-        file = open('5.txt', encoding="utf8")
+        file = open(name_file, encoding="utf8")
         self.text.delete(1.0, tk.END)
         self.text.insert(tk.END, file.read())
 
