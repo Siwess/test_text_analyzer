@@ -8,6 +8,7 @@ def msg_box_count_words():
     ##
     file = open(file_name.name_file)
     data = file.read()
-    numbers_of_words = len(data.split(" "))
+    rm_spaces = data.replace(".", " ")
+    numbers_of_words = len(rm_spaces.split(" "))
     msg.showinfo("Words in text", numbers_of_words)
 
