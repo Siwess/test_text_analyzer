@@ -9,5 +9,5 @@ def msg_box_count_sentences():
     file = open(file_name.name_file)
     data = file.read()
     numbers_of_sentences = len(data.split("."))
-    msg.showinfo("Sentences in text", numbers_of_sentences)
+    msg.showinfo("Sentences in text: ", numbers_of_sentences)
 
