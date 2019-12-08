@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from libs.file_download import file_download
 from libs.count_letters import msg_box_count_letters
-from libs.count_words import count_words
+from libs.count_words import msg_box_count_words
 from libs.count_punctuation_marks import count_punctuation_marks
 from libs.count_sentences import count_sentences
 from tkinter import filedialog as fd
@@ -60,7 +60,7 @@ class Application:
         count_menu.add_command(label="Count letters", command=msg_box_count_letters)
         count_menu.add_command(label="Count punctuation marks", command=count_punctuation_marks)
         count_menu.add_command(label="Count sentences", command=count_sentences)
-        count_menu.add_command(label="Count words", command=count_words)
+        count_menu.add_command(label="Count words", command=msg_box_count_words)
 
         help_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Help", menu=help_menu)
