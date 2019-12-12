@@ -9,7 +9,7 @@ from tkinter import filedialog as fd
 from msg_box import _msg_box
 from libs.file_name import name_file
 from libs.usage_report import plot_usage_statistics
-from tkinter import messagebox as msg
+from libs.delete_file import delete_file
 
 
 class Application:
@@ -56,7 +56,7 @@ class Application:
         file_menu.add_command(label="Generate usage report [A-Z]...", command=plot_usage_statistics)
         file_menu.add_command(label="Save file...", command=self.save_file)
         file_menu.add_command(label="Save statistics...", command=self.save_statistics)
-        file_menu.add_command(label="Exit", command=self._quit)
+        file_menu.add_command(label="Exit", command=delete_file)
 
         count_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Count", menu=count_menu)
