@@ -1,16 +1,16 @@
+import pickle
 import tkinter as tk
 from tkinter import *
+from tkinter import filedialog as fd
+from libs.delete_file import delete_file
 from libs.file_download import file_download
+from libs.file_name import name_file
 from libs.count_letters import count_letters
-from libs.count_words import count_words
 from libs.count_punctuation_marks import count_punctuation_marks
 from libs.count_sentences import count_sentences
-from tkinter import filedialog as fd
-from msg_box import _msg_box
-from libs.file_name import name_file
+from libs.count_words import count_words
 from libs.usage_report import plot_usage_statistics
-from libs.delete_file import delete_file
-import pickle
+from msg_box import _msg_box
 
 
 class Application:

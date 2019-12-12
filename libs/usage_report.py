@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import *
+from tkinter import messagebox as msg
 from collections import Counter
 from libs import file_name
-from tkinter import messagebox as msg
 
 
 def plot_usage_statistics():
