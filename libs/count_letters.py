@@ -4,7 +4,7 @@ from libs import file_name
 from tkinter import messagebox as msg
 
 
-def msg_box_count_letters():
+def count_letters():
     ##
     # Show Window about letters in text.
     ##
@@ -34,7 +34,4 @@ def msg_box_count_letters():
 
     except IOError:
         msg.showinfo("There is no file!", "Download file...")
-
-
     # TODO: Change this nice code...
-
