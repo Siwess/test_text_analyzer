@@ -91,7 +91,7 @@ class Application:
             self.text.delete(1.0, tk.END)
             self.text.insert(tk.END, file.read())
         except IOError:
-            msg.showinfo("There is no file!", "Download file...")
+            pass
 
     def save_file(self):
         ##
