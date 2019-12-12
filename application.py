@@ -9,6 +9,7 @@ from tkinter import filedialog as fd
 from msg_box import _msg_box
 from libs.file_name import name_file
 from libs.usage_report import plot_usage_statistics
+from tkinter import messagebox as msg
 
 
 class Application:
@@ -51,7 +52,7 @@ class Application:
         file_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="File", menu=file_menu)
         file_menu.add_command(label="Download hardcoded file", command=file_download)
-        # file_menu.add_command(label="Open file...", command=self.open_file)
+        file_menu.add_command(label="Open file...", command=self.open_file)
         file_menu.add_command(label="Generate usage report [A-Z]...", command=plot_usage_statistics)
         file_menu.add_command(label="Save file...", command=self.save_file)
         file_menu.add_command(label="Save statistics...", command=self.save_statistics)
@@ -70,24 +71,27 @@ class Application:
 
         # TODO: Create GUI. Add menu.
 
-    # def open_file(self):
-    #     ##
-    #     # Open text file
-    #     ##
-    #     filename = fd.askopenfilename(filetypes=[("Text file", "*.txt")])
-    #
-    #     if filename:
-    #         with open(filename, "r", -1, "utf-8") as file:
-    #             self.text.delete(1.0, tk.END)
-    #             self.text.insert(tk.END, file.read())
+    def open_file(self):
+        ##
+        # Open text file
+        ##
+        filename = fd.askopenfilename(filetypes=[("Text file", "*.txt")])
+
+        if filename:
+            with open(filename, "r", -1, "utf-8") as file:
+                self.text.delete(1.0, tk.END)
+                self.text.insert(tk.END, file.read())
 
     def auto_open_file(self):
         ##
         # Open hardcoded text file
         ##
-        file = open(name_file, encoding="utf8")
-        self.text.delete(1.0, tk.END)
-        self.text.insert(tk.END, file.read())
+        try:
+            file = open(name_file, encoding="utf8")
+            self.text.delete(1.0, tk.END)
+            self.text.insert(tk.END, file.read())
+        except IOError:
+            msg.showinfo("There is no file!", "Download file...")
 
     def save_file(self):
         ##
