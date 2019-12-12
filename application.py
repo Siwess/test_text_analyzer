@@ -35,14 +35,6 @@ class Application:
         self.text.config(yscrollcommand=self.scrollbar_text.set)
         self.text.place(x=0, y=0, relwidth=1, relheight=1, width=- 18)
 
-    def _quit(self):
-        ##
-        # Exit GUI cleanly
-        ##
-        self.win.quit()
-        self.win.destroy()
-        exit()
-
     def create_widgets(self):
         ##
         # Create widgets like menu, text box, etc.
