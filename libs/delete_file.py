@@ -5,15 +5,15 @@ import sys
 
 
 def delete_file():
-    statistics = "statystyki.txt"
+    statistics = "statistics.txt"
     text = name_file
     if os.path.exists(statistics) and os.path.exists(text):
-        os.remove(text), os.remove(statistics)
+        os.remove(statistics), os.remove(text)
         messagebox.showinfo('Info1', 'The files has been deleted.')
         exit(0)
     if os.path.exists(statistics):
         os.remove(statistics)
-        messagebox.showinfo('Info2', 'The Statystyka.txt file has been deleted.')
+        messagebox.showinfo('Info2', 'The statistics.txt file has been deleted.')
         exit(0)
     elif os.path.exists(text):
         os.remove(text)
