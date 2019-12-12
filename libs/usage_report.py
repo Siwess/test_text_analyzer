@@ -19,7 +19,7 @@ def plot_usage_statistics():
         text.config(yscrollcommand=scrollbar_text.set)
         text.place(x=0, y=0, relwidth=1, relheight=1, width=-18)
         win.geometry("400x460")
-        win.title("Number of letters")
+        win.title("Usage of letters")
 
         counter = Counter(data)
         a = counter['a']
