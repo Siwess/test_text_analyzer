@@ -104,3 +104,4 @@ def plot_usage_statistics():
 
     except IOError:
         msg.showinfo("There is no file!", "Download file...")
+
