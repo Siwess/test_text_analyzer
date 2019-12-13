@@ -1,0 +1,4 @@
+Count letters: 3119
+Count punctuation marks: 109
+Count sentences: 65
+Count words: 832
