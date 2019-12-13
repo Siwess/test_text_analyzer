@@ -1,15 +1,16 @@
+import pickle
 import tkinter as tk
 from tkinter import *
+from tkinter import filedialog as fd
+from libs.delete_file import delete_file
 from libs.file_download import file_download
-from libs.count_letters import msg_box_count_letters
-from libs.count_words import count_words
+from libs.file_name import name_file
+from libs.count_letters import count_letters
 from libs.count_punctuation_marks import count_punctuation_marks
 from libs.count_sentences import count_sentences
-from tkinter import filedialog as fd
-from msg_box import _msg_box
-from libs.file_name import name_file
+from libs.count_words import count_words
 from libs.usage_report import plot_usage_statistics
-from libs.delete_file import delete_file
+from msg_box import _msg_box
 
 
 class Application:
@@ -34,14 +35,6 @@ class Application:
         self.text.config(yscrollcommand=self.scrollbar_text.set)
         self.text.place(x=0, y=0, relwidth=1, relheight=1, width=- 18)
 
-    def _quit(self):
-        ##
-        # Exit GUI cleanly
-        ##
-        self.win.quit()
-        self.win.destroy()
-        exit()
-
     def create_widgets(self):
         ##
         # Create widgets like menu, text box, etc.
@@ -60,7 +53,7 @@ class Application:
 
         count_menu = Menu(menu_bar, tearoff=0)
         menu_bar.add_cascade(label="Count", menu=count_menu)
-        count_menu.add_command(label="Count letters", command=msg_box_count_letters)
+        count_menu.add_command(label="Count letters", command=count_letters)
         count_menu.add_command(label="Count punctuation marks", command=count_punctuation_marks)
         count_menu.add_command(label="Count sentences", command=count_sentences)
         count_menu.add_command(label="Count words", command=count_words)
@@ -75,12 +68,15 @@ class Application:
         ##
         # Open text file
         ##
-        filename = fd.askopenfilename(filetypes=[("Text file", "*.txt")])
+        try:
+            filename = fd.askopenfilename(filetypes=[("Text file", "*.txt")])
 
-        if filename:
-            with open(filename, "r", -1, "utf-8") as file:
-                self.text.delete(1.0, tk.END)
-                self.text.insert(tk.END, file.read())
+            if filename:
+                with open(filename, "r", -1, "utf-8") as file:
+                    self.text.delete(1.0, tk.END)
+                    self.text.insert(tk.END, file.read())
+        except IOError:
+            pass
 
     def auto_open_file(self):
         ##
@@ -111,8 +107,8 @@ class Application:
         filename = fd.asksaveasfilename(filetypes=[("Text file", "*.txt")], defaultextension="*.txt")
 
         if filename:
-            with open(filename, "w", -1, "utf-8") as file:
-                file.write(self.text.get(1.0, tk.END))
+            with open(filename, "wb", -1) as file:
+                pickle.dump(count_letters, file)
 
 
 app = Application()
