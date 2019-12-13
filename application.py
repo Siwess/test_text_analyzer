@@ -10,6 +10,7 @@ from libs.count_punctuation_marks import count_punctuation_marks
 from libs.count_sentences import count_sentences
 from libs.count_words import count_words
 from libs.usage_report import plot_usage_statistics
+from  libs.generate_raport import generate
 from msg_box import _msg_box
 
 
@@ -48,7 +49,7 @@ class Application:
         file_menu.add_command(label="Open file...", command=self.open_file)
         file_menu.add_command(label="Generate usage report [A-Z]...", command=plot_usage_statistics)
         file_menu.add_command(label="Save file...", command=self.save_file)
-        file_menu.add_command(label="Save statistics...", command=self.save_statistics)
+        file_menu.add_command(label="Save statistics...", command=generate)
         file_menu.add_command(label="Exit", command=delete_file)
 
         count_menu = Menu(menu_bar, tearoff=0)
